@@ -1,0 +1,68 @@
+!DOCTYPE html
+html
+  head
+    titleВыбор вопросаtitle
+    style
+      body {
+        font-family Arial, sans-serif;
+      }
+      h1 {
+        text-align center;
+      }
+      button {
+        margin 10px;
+        padding 10px;
+        font-size 16px;
+      }
+    style
+  head
+  body
+    h1Выберите вопросh1
+    div id=questiondiv
+    button id=choose-btnВыбратьbutton
+    button id=reset-btnСброситьbutton
+    button id=thanks-btnС благодарностьюbutton
+    script
+       Массив с вопросами
+      const questions = [
+        Какой ваш любимый цвет,
+        Какой ваш любимый вид спорта,
+        Какой ваш любимый фильм,
+        Какое ваше любимое блюдо,
+        Какой ваш любимый отдых,
+        Какой ваш любимый музыкальный жанр,
+        Какая ваша любимая книга,
+        Какой ваш любимый праздник,
+        Какое ваше любимое занятие,
+        Какой ваш любимый город,
+      ];
+
+      let currentQuestion = null;
+
+      const questionEl = document.getElementById(question);
+      const chooseBtn = document.getElementById(choose-btn);
+      const resetBtn = document.getElementById(reset-btn);
+      const thanksBtn = document.getElementById(thanks-btn);
+
+       Функция для выбора случайного вопроса из массива
+      function chooseQuestion() {
+        let newQuestion = null;
+        do {
+          newQuestion = questions[Math.floor(Math.random()  questions.length)];
+        } while (newQuestion === currentQuestion);
+        currentQuestion = newQuestion;
+        questionEl.innerText = currentQuestion;
+      }
+
+       Обработчики событий для кнопок
+      chooseBtn.addEventListener(click, chooseQuestion);
+      resetBtn.addEventListener(click, () = {
+        currentQuestion = null;
+        questionEl.innerText = ;
+      });
+      thanksBtn.addEventListener(click, () = {
+        thanksBtn.innerText = От Смита;
+      });
+    script
+  body
+html
